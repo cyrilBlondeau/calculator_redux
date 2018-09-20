@@ -1,13 +1,12 @@
 export default (state = [], action) => {
-    switch(action.type) {
-        
-        case 'RESULT':
+    switch (action.type) {
+        case 'ADD_HISTORY':
             return [
                 ...state,
-                {
-                    operation: action.payload_operation,
-                    result: action.payload_result
-                }
+                [
+                    action.operation,
+                    action.result
+                ]
             ]
         case 'RESET_ALL':
             return [];

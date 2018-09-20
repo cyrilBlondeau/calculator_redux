@@ -8,9 +8,16 @@ export const addNumber = (number) => {
 export const result = (operation) => {
   return {
     type: 'RESULT',
-    payload_result: Math.round(eval(operation)),
-    payload_operation: operation
+    payload: Math.round(eval(operation))
   };
+}
+
+export const addHistory = (operation) => {
+  return {
+    type: 'ADD_HISTORY',
+    operation: operation,
+    result: Math.round(eval(operation))
+  }
 }
 
 export const reset = () => {
