@@ -12,7 +12,7 @@ export const result = (operation) => {
   };
 }
 
-export const reset = (result) => {
+export const reset = (result, operation) => {
   return {
     type: 'RESET',
   }
