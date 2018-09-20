@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { addNumber, result, reset } from '../actions/index';
+import { addNumber, result, reset, resetAll } from '../actions/index';
 
 class Calculator extends Component {
   renderNumbers() {
     return this.props.numbers.map((number) => {
       return (
         <li 
-          key={number}
-          onClick={() => this.props.addNumber(number)}
-          className="calculator-pad">
+        key={number}
+        onClick={() => this.props.addNumber(number)}
+        className="calculator-pad">
           {number}
         </li>
       )
@@ -19,14 +19,14 @@ class Calculator extends Component {
 
   render() {
     const operation = (this.props.operation)
-    const result = (this.props.result)
     return (
       <div>
         <ul>
           {this.renderNumbers()}
         </ul>
-        <span onClick={() => this.props.result(operation)}>=</span>
-        <span onClick={() => this.props.reset(result)}>C</span>
+        <span onClick={() => this.props.result(operation)}> = </span>
+        <span onClick={() => this.props.reset()}> C </span>
+        <span onClick={() => this.props.resetAll()}> CE </span>
       </div>
     )
   }
@@ -36,12 +36,11 @@ function mapStateToProps(state) {
   return {
     numbers: state.numbers,
     operation: state.operation,
-    result: state.result
   };
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ addNumber, result, reset }, dispatch);
+  return bindActionCreators({ addNumber, result, reset, resetAll }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Calculator);

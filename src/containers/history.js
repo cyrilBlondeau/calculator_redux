@@ -1,20 +1,32 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 
 class History extends Component {
+  renderHistory() {
+    return this.props.history.map((calcul) => {
+      return (
+        <li key={calcul.result}>
+          {calcul.operation} = {calcul.result}
+        </li>
+      )
+    })
+  }
+
   render() {
+    console.log(this.props.history)
     return (
       <div>
-        
+        <ul>
+          {this.renderHistory()}
+        </ul>
       </div>
     )
   }
 }
 
-function mapStateToProps() {
+function mapStateToProps(state) {
   return {
-
+    history: state.history
   };
 }
 

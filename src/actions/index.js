@@ -8,12 +8,19 @@ export const addNumber = (number) => {
 export const result = (operation) => {
   return {
     type: 'RESULT',
-    payload: Math.round(eval(operation))
+    payload_result: Math.round(eval(operation)),
+    payload_operation: operation
   };
 }
 
-export const reset = (result, operation) => {
+export const reset = () => {
   return {
     type: 'RESET',
+  }
+}
+
+export const resetAll = () => {
+  return {
+    type: 'RESET_ALL',
   }
 }
