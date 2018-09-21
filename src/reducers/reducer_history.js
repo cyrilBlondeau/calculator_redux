@@ -3,10 +3,10 @@ export default (state = [], action) => {
         case 'ADD_HISTORY':
             return [
                 ...state,
-                [
-                    action.operation,
-                    action.result
-                ]
+                {
+                    operation: action.operation,
+                    result: action.result
+                }
             ]
         case 'RESET_ALL':
             return [];

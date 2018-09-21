@@ -24,7 +24,7 @@ class Calculator extends Component {
         <ul>
           {this.renderNumbers()}
         </ul>
-        <span onClick={() => {this.props.result(operation), this.props.addHistory(operation)}}> = </span>
+        <span onClick={() => {this.props.result(operation); this.props.addHistory(operation)}}> = </span>
         <span onClick={() => this.props.reset()}> C </span>
         <span onClick={() => this.props.resetAll()}> CE </span>
       </div>

@@ -7,7 +7,7 @@ class History extends Component {
       <div>
         {this.props.history.map((calcul, i) => (
           <span key={i}>
-            <p>{calcul[0]}</p> = <p>{calcul[1]}</p>
+            <p>{calcul.operation}</p> = <p>{calcul.result}</p>
           </span>
         ))}
       </div>
