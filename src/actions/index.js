@@ -12,8 +12,22 @@ export const result = (operation) => {
   };
 }
 
-export const reset = (result, operation) => {
+export const addHistory = (operation) => {
+  return {
+    type: 'ADD_HISTORY',
+    operation: operation,
+    result: Math.round(eval(operation))
+  }
+}
+
+export const reset = () => {
   return {
     type: 'RESET',
+  }
+}
+
+export const resetAll = () => {
+  return {
+    type: 'RESET_ALL',
   }
 }

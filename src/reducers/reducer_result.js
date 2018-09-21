@@ -6,6 +6,8 @@ export default (state = initialState, action) => {
       return action.payload;
     case 'RESET':
       return '';
+    case 'RESET_ALL':
+      return '';
     default: return state;
   }
 }
