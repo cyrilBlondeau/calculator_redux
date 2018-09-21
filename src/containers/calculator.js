@@ -11,7 +11,7 @@ class Calculator extends Component {
         className="calculator-pad"
         key={number}
         onClick={() => this.props.addNumber(number)}
-        className="calculator-pad">
+        >
           {number}
         </li>
       )

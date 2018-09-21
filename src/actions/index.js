@@ -12,17 +12,35 @@ export const deleteNumber = () => {
 }
 
 export const result = (operation) => {
+  let operationArray = operation.split('');
+  for (let i = 0; i < operationArray.length; i++) {
+    if ((operationArray[i-1] === '+' || operationArray[i-1] === '-' || operationArray[i-1] === '/' || operationArray[i-1] === '*' ) && (operationArray[i] === '0')) {
+      operationArray[i] = '1';
+    }
+  }
+  operation = operationArray.join("").toString("");
+  console.log(operation);
+  let resultat = (Math.round(eval(operation)));
   return {
     type: 'RESULT',
-    payload: Math.round(eval(operation))
+    payload: resultat
   };
 }
 
 export const addHistory = (operation) => {
+  let operationArray = operation.split('');
+  for (let i = 0; i < operationArray.length; i++) {
+    if ((operationArray[i-1] === '+' || operationArray[i-1] === '-' || operationArray[i-1] === '/' || operationArray[i-1] === '*' ) && (operationArray[i] === '0')) {
+      operationArray[i] = '1';
+    }
+  }
+  operation = operationArray.join("").toString("");
+  console.log(operation);
+  let resultat = (Math.round(eval(operation)));
   return {
     type: 'ADD_HISTORY',
     operation: operation,
-    result: Math.round(eval(operation))
+    result: Math.round(eval(resultat))
   }
 }
 
