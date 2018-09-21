@@ -7,7 +7,8 @@ class Calculator extends Component {
   renderNumbers() {
     return this.props.numbers.map((number) => {
       return (
-        <li 
+        <li
+        className="calculator-pad"
         key={number}
         onClick={() => this.props.addNumber(number)}
         className="calculator-pad">
@@ -20,13 +21,13 @@ class Calculator extends Component {
   render() {
     const operation = (this.props.operation)
     return (
-      <div>
+      <div className="calculator">
         <ul>
           {this.renderNumbers()}
+          <li className="calculator-pad" onClick={() => this.props.reset()}> C </li>
+          <li className="calculator-pad" onClick={() => this.props.resetAll()}> CE </li>
+          <li className="calculator-pad-egal" onClick={() => {this.props.result(operation); this.props.addHistory(operation)}}> = </li>
         </ul>
-        <span onClick={() => {this.props.result(operation); this.props.addHistory(operation)}}> = </span>
-        <span onClick={() => this.props.reset()}> C </span>
-        <span onClick={() => this.props.resetAll()}> CE </span>
       </div>
     )
   }
