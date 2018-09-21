@@ -4,9 +4,8 @@ import { connect } from 'react-redux';
 class Operation extends Component {
   render() {
     return (
-      <div>
-        Operation: 
-        {this.props.operation}
+      <div className="operation">
+        {this.props.operation}{this.props.result}
       </div>
     )
   }
@@ -14,7 +13,8 @@ class Operation extends Component {
 
 function mapStateToProps(state) {
   return {
-    operation: state.operation
+    operation: state.operation,
+    result: state.result
   };
 }
 
