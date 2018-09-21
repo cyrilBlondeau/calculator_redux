@@ -5,10 +5,12 @@ class History extends Component {
   render() {
     return (
       <div className="history">
-        {this.props.history.map((calcul, i) => (
-          <span key={i}>
-            <p>{calcul.operation}</p> = <p>{calcul.result}</p>
-          </span>
+        {this.props.history.reverse().map((calcul, i) => (
+          <ul key={i}>
+            <li><p>{calcul.operation}</p></li>
+            <li>=</li>
+            <li><p>{calcul.result}</p></li>
+          </ul>
         ))}
       </div>
     )

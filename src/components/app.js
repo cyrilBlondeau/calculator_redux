@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Row, Col } from 'reactstrap';
+import { Container } from 'reactstrap';
 import Calculator from '../containers/calculator';
 import Operation from '../containers/operation';
 import History from '../containers/history';

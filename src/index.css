@@ -54,9 +54,26 @@ ul {
   height: 30vh;
   padding: 10px;
   margin: 0 5%;
-  text-align: right;
+  text-align: left;
+  overflow: scroll;
   background-color: #ebebeb;
   border-top: solid 1px #b9b9b9;
   border-left: solid 1px #b9b9b9;
   border-right: solid 1px #b9b9b9;
+}
+
+.history ul {
+  margin: 0;
+  padding: 0;
+}
+
+.history li {
+  display: inline-block;
+  margin: 0 10px;
+  padding: 0;
+  color: gray;
+}
+
+.history::-webkit-scrollbar {
+  background-color: red;
 }
