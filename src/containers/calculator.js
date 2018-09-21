@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { addNumber, result, addHistory, reset, resetAll } from '../actions/index';
+import { addNumber, deleteNumber, result, addHistory, reset, resetAll } from '../actions/index';
 
 class Calculator extends Component {
   renderNumbers() {
@@ -24,6 +24,7 @@ class Calculator extends Component {
       <div className="calculator">
         <ul>
           {this.renderNumbers()}
+          <li className="calculator-pad" onClick={() => this.props.deleteNumber()}> del </li>
           <li className="calculator-pad" onClick={() => this.props.reset()}> C </li>
           <li className="calculator-pad" onClick={() => this.props.resetAll()}> CE </li>
           <li className="calculator-pad-egal" onClick={() => {this.props.result(operation); this.props.addHistory(operation)}}> = </li>
@@ -41,7 +42,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ addNumber, result, addHistory, reset, resetAll }, dispatch);
+  return bindActionCreators({ addNumber, deleteNumber, result, addHistory, reset, resetAll }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Calculator);

@@ -5,6 +5,12 @@ export const addNumber = (number) => {
   };
 }
 
+export const deleteNumber = () => {
+  return {
+    type: 'DELETE',
+  };
+}
+
 export const result = (operation) => {
   return {
     type: 'RESULT',
