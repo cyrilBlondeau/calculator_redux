@@ -12,35 +12,17 @@ export const deleteNumber = () => {
 }
 
 export const result = (operation) => {
-  let operationArray = operation.split('');
-  for (let i = 0; i < operationArray.length; i++) {
-    if ((operationArray[i-1] === '+' || operationArray[i-1] === '-' || operationArray[i-1] === '/' || operationArray[i-1] === '*' ) && (operationArray[i] === '0')) {
-      operationArray[i] = '1';
-    }
-  }
-  operation = operationArray.join("").toString("");
-  console.log(operation);
-  let resultat = (Math.round(eval(operation)));
   return {
     type: 'RESULT',
-    payload: resultat
+    payload: eraseZero(operation)
   };
 }
 
 export const addHistory = (operation) => {
-  let operationArray = operation.split('');
-  for (let i = 0; i < operationArray.length; i++) {
-    if ((operationArray[i-1] === '+' || operationArray[i-1] === '-' || operationArray[i-1] === '/' || operationArray[i-1] === '*' ) && (operationArray[i] === '0')) {
-      operationArray[i] = '1';
-    }
-  }
-  operation = operationArray.join("").toString("");
-  console.log(operation);
-  let resultat = (Math.round(eval(operation)));
   return {
     type: 'ADD_HISTORY',
     operation: operation,
-    result: Math.round(eval(resultat))
+    result: eraseZero(operation)
   }
 }
 
@@ -54,4 +36,20 @@ export const resetAll = () => {
   return {
     type: 'RESET_ALL',
   }
+}
+
+// Fonctions
+
+const eraseZero = (operation) => {
+  let operationArray = operation.split('');
+  for (let i = 0; i < operationArray.length; i++) {
+    if ((operationArray[0] === '0') && (i+1 !== '0')) {
+      operationArray.splice(i, 1);
+    }
+    else if ((operationArray[i-1] === '+' || operationArray[i-1] === '-' || operationArray[i-1] === '/' || operationArray[i-1] === '*' ) && (operationArray[i] === '0')) {
+      operationArray.splice(i, 1);
+    }
+  }
+  operation = operationArray.join("").toString("");
+  return (Math.round(eval(operation)));
 }
