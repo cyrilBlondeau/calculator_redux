@@ -6,6 +6,10 @@ body {
   background-color: #ebebeb;
 }
 
+.calculatorApp {
+  height: 100vh;
+}
+
 .calculator {
   margin: auto;
   margin-top: 10px;
